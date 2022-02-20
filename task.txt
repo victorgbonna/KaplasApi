@@ -1,0 +1,31 @@
+Implement following endpoints
+Add a new contact.
+Add bulk contacts.
+Fetch details of single contact.
+Fetch phase matching results.
+Fetch the list of contacts with pagination.
+Update the given contact.
+Delete the given contact.
+Add JWT authentication to secure API.
+Implement an endpoint to get the JWT token.
+
+
+job_title	string Max Length: 50	The job title of the contact.
+company_name	string Max Length: 50	The name of the company where the contact works.
+phone_number	string Max Length: 50	A phone number for the contact.
+anniversary	string	The anniversary date for the contact. For example, this value could be the date when the contact first became a customer of an organization in Constant Contact. Valid date formats are MM/DD/YYYY, M/D/YYYY, YYYY/MM/DD, YYYY/M/D, YYYY-MM-DD, YYYY-M-D,M-D-YYYY, or M-DD-YYYY.
+birthday_month	integer	The month value for the contact's birthday. Valid values are from 1 through 12. The birthday_month property is required if you use birthday_day.
+birthday_day	integer	The day value for the contact's birthday. Valid values are from 1 through 31. The birthday_day property is required if you use birthday_month.
+list_memberships
+required
+array[string]	The contact lists you want to add the contact to as an array of up to 50 contact list_id values. You must include at least one list_id.
+custom_fields	array[object]	The custom fields you want to add to the contact as an array of up to 50 objects. If you are adding custom fields to a contact, each custom field object must contain:
+custom_field_id—The unique id for the custom field.
+value—The value of the custom field you are adding for the contact.
+street_address	object	The contact's street address as an object that can contain the following string properties:
+kind—The type of street address for the contact. Valid values are home, work, or other.
+street—The number and street of the contact's address.
+city—The name of the city for the contact's address.
+state—The name of the state or province for the contact's address.
+postal_code—The zip or postal code for the contact's address.
+country—The name of the country for the contact's address.
