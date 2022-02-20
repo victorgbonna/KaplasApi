@@ -26,6 +26,10 @@ const contactSchema= new mongoose.Schema({
         maxlength: [50, 'Phone number can only take up to 50 characters'],
         required: [true,'Phone number is required']
     },
+    isAdmin:{
+        type: Boolean,
+        default:false
+    },
     job_title:{
         type: String,
         maxlength: [50, 'Job title can only take up to 50 letters'],

@@ -1,6 +1,14 @@
 const { calcOffset } = require('./helper')
 const Contact= require('./model')
 
+//login contact
+const loginContact = async (email) =>{
+    const contact= Contact.find({email})
+    if (!contact.isAdmin){
+        return {'message':'You are not an admin'}
+    }
+    return contact
+}
 // helper to add to the contact database
 const addContact = async (contactInput) =>{
     const contact=new Contact(contactInput)
@@ -12,6 +20,7 @@ const addContacts = async (contactInputList) =>{
     const contacts= await Contact.insertMany(contactInputList)
     return contacts
 }
+
 const getContact = async (contactId) =>{
     const contact= Contact.find({_id:contactId})
     return contact
@@ -40,4 +49,4 @@ const deleteContact= async (contactId)=>{
     return result
 }
 
-module.exports= {addContact,addContacts, getContact, getContacts, updateContactInfo, deleteContact}
+module.exports= {loginContact,addContact,addContacts, getContact, getContacts, updateContactInfo, deleteContact}

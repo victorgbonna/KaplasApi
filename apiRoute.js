@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 const { successWrapper, errorWrapper } = require('./helper')
+const { authenticateToken } = require('./middleware')
 const { getContact, getContacts, updateContactInfo, addContact, addContacts, deleteContact } = require('./service')
 
 //add contact
-router.post('/add/', async (req, res) => {
+router.post('/add', async (req, res) => {
     try{
       const contact = await addContact(req.body)
       return successWrapper({
@@ -26,7 +27,7 @@ router.post('/add/', async (req, res) => {
     }
   })
 //add bulk contacts
-router.post('/bulk/add/', async(req,res)=>{
+router.post('/bulk/add', authenticateToken, async(req,res)=>{
     try{
         const contacts = await addContacts(req.body)
         return successWrapper({
@@ -46,7 +47,7 @@ router.post('/bulk/add/', async(req,res)=>{
     }
 })
 //get contacts with pagination and conditions(example-{'phone': '+234 8072897950', 'birthday-month':3})
-router.get('/all/', async(req,res)=>{
+router.get('/all',authenticateToken, async(req,res)=>{
     
     const {pageNo, pageSize, ...conditions}=req.query
     const getAllContacts= await getContacts({pageNo, pageSize, conditions})
@@ -58,7 +59,7 @@ router.get('/all/', async(req,res)=>{
     
 })
 //get contact with contact id
-router.get('/:contactId/', async(req,res)=>{
+router.get('/:contactId', authenticateToken, async(req,res)=>{
     const contactId= req.params.contactId
     try {
         const contact= await getContact(contactId)
@@ -78,7 +79,7 @@ router.get('/:contactId/', async(req,res)=>{
     }
 })
 //update contact info
-router.put('/:contactId/', async (req,res) =>{
+router.put('/:contactId',authenticateToken, async (req,res) =>{
     const contactId= req.params.contactId
     const updates=req.body
     // console.log(contactId)
@@ -100,7 +101,7 @@ router.put('/:contactId/', async (req,res) =>{
       }
 })
 //delete contact
-router.delete('/:contactId/', async (req,res) =>{
+router.delete('/:contactId',authenticateToken, async (req,res) =>{
   const contactId= req.params.contactId
   // console.log(contactId)
   try {

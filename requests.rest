@@ -1,0 +1,17 @@
+
+post http://localhost:4000/api/contact/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDUzNjY2MjZ9.NezRgSUFQDvcJ77r4lfzatZ_cjgfmfJ7eYKRRZbBO3k
+###
+
+post http://localhost:400/api/contact/bulk/add
+
+###
+post http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email":"victorgbonna@gmail.com"
+}
+###
+get http://localhost:4000/api/contact/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDUzNjY2MjZ9.NezRgSUFQDvcJ77r4lfzatZ_cjgfmfJ7eYKRRZbBO3k
