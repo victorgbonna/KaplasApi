@@ -2,34 +2,34 @@
 ## About The Project
 
 #### Frameworks, tools and libraries used 
-... Node Js - runtime environment
-... Express - backend library
-... Mongodb- dbms
-... Mongoose- ORM library for mongodb 
-... Nodemon- dev dependency for auto run incase of changes
-... JsonWebToken- for authentication and authorization on the api routes 
-... Dotenv- putting all your environmental variables in a .env file
-... Chai and mocha - program testing.
+...Node Js - runtime environment
+...Express - backend library
+...Mongodb- dbms
+...Mongoose- ORM library for mongodb 
+...Nodemon- dev dependency for auto run incase of changes
+...JsonWebToken- for authentication and authorization on the api routes 
+...Dotenv- putting all your environmental variables in a .env file
+...Chai and mocha - program testing.
 
 ### Getting started 
 #### To get a local copy up and running follow these simple example steps
 #### Installation
-... Clone the repo
-... npm install
-... Your config file are alright, given that they have default values. The only setback is that you have to create a mongo db collection
+...Clone the repo
+...npm install
+...Your config file are alright, given that they have default values. The only setback is that you have to create a mongo db collection
 
-... There will not be a problem If you have mongo db atlas installed. A collection would be created automatically by default. You can create a collection online via the mongodb ... atlas [Web site](https://cloud.mongodb.com/) if you don't have it installed.
+...There will not be a problem If you have mongo db atlas installed. A collection would be created automatically by default. You can create a collection online via the mongodb ...atlas [Web site](https://cloud.mongodb.com/) if you don't have it installed.
 
 ### Map 
 ###### This would entail every file and it's uses 
-... Index.js - the main js page. It imports everything's then runs the app. 
-... Config- both config and db js inside the config are for configurations and secret variables like the port, mongoose connection, token functionalities.
-... Requests.res - for testing the apis(install restcient extension on your vscode to make use of it )
-... Middleware - containing the token passing, verifies if the user is an admin so as to give him the authorization to make api calls
-... Api routes- this is where all the api endpoints are
-... Model js- handling the mongoose schema. 
+...Index.js - the main js page. It imports everything's then runs the app. 
+...Config- both config and db js inside the config are for configurations and secret variables like the port, mongoose connection, token functionalities.
+...Requests.res - for testing the apis(install restcient extension on your vscode to make use of it )
+...Middleware - containing the token passing, verifies if the user is an admin so as to give him the authorization to make api calls
+...Api routes- this is where all the api endpoints are
+...Model js- handling the mongoose schema. 
 ....Helper js- this contain the messageWrappers for validation and the calcoffset function for getting the iterable skips when getting the contacts
-... Service- holds all the api functionalities. 
+...Service- holds all the api functionalities. 
 ....test js - program testing 
 
 ### API routes
